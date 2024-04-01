@@ -1,13 +1,11 @@
-import { Button } from 'antd';
+import { Header, Hero, Card } from './components'
 
 export default function App() {
-  return (
-    <>
-      <h1 className="text-3xl font-bold underline">
-        Hello world!
-      </h1>
-
-      <Button type="primary">Button</Button>
-    </>
-  )
+    return (
+        <div className='container mx-auto px-4'>
+            <Header />
+            <Hero />
+            <Card />
+        </div>
+    )
 }
