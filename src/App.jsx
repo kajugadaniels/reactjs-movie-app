@@ -1,38 +1,17 @@
 import React, { useState, useEffect } from 'react';
-import { Header, Hero, Card } from './components';
-import fetchNowPlaying from './api/fetchNowPlaying'; // Import fetchNowPlaying from the api folder
-import axios from 'axios';
+import { Routes, Route } from "react-router-dom";
+import { Details, Home, Login, NotFound, Search } from './pages/'
 
 function App() {
-    const [movies, setMovies] = useState([]);
-
-    useEffect(() => {
-        fetchNowPlayingData();
-    }, []);
-
-    const fetchNowPlayingData = async () => {
-        const data = await fetchNowPlaying();
-        setMovies(data);
-    };
 
     return (
-        <div className='bg-black px-10'>
-            <Header />
-            <Hero />
-            <div className='container py-8'>
-                <div className='flex flex-wrap gap-4'>
-                    {movies.map((movie, index) => (
-                        <Card
-                            key={index}
-                            title={movie.original_title}
-                            src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-                            price={movie.vote_average}
-                            vote={movie.vote_average}
-                        />
-                    ))}
-                </div>
-            </div>
-        </div>
+        <Routes>
+            <Route path="/" element={ <Home /> } />
+            <Route path="search/" element={ <Search /> } />
+            <Route path="movie/:id" element={ <Details /> } />
+            <Route path="login/" element={ <Login /> } />
+            <Route path="*" element={ <NotFound /> } />
+        </Routes>
     );
 }
 
