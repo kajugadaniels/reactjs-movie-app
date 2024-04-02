@@ -7,7 +7,7 @@ import playIc from "../assets/icons/play_circle.svg";
 import fireIc from "../assets/icons/fire.svg";
 import likeIc from "../assets/icons/like.svg";
 import starIc from "../assets/icons/star.svg";
-import loadingIc from "../assets/icons/loading.svg";
+import loadingIc from "../assets/icons/loading.gif";
 
 export const images = {
     logo,
